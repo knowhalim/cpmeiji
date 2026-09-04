@@ -50,8 +50,25 @@
   .nav a:hover { color: var(--red); }
   .hero {
     background: linear-gradient(160deg, var(--light) 0%, #dbeafe 100%);
+    padding: 4rem 1.5rem 4.5rem;
+  }
+  .hero-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+  }
+  .hero-text {
+    flex: 1 1 380px;
     text-align: center;
-    padding: 5.5rem 1.5rem 6rem;
+  }
+  .hero-photo {
+    width: min(300px, 75vw);
+    border-radius: 20px;
+    box-shadow: 0 20px 45px rgba(29, 53, 87, 0.3);
   }
   .hero h1 {
     font-size: clamp(2.2rem, 6vw, 3.6rem);
@@ -149,9 +166,14 @@
 </header>
 
 <section class="hero">
-  <h1>Power Your Day with <span>CpMeiji</span></h1>
-  <p>Smooth, delicious protein drinks crafted for training, recovery, and everyday energy.</p>
-  <a class="btn" href="#flavors">Explore Flavors</a>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>Power Your Day with <span>CpMeiji</span></h1>
+      <p>Smooth, delicious protein drinks crafted for training, recovery, and everyday energy.</p>
+      <a class="btn" href="#flavors">Explore Flavors</a>
+    </div>
+    <img class="hero-photo" src="images/cpmeiji-bottle.jpg" alt="CP-Meiji High Protein drink bottle — 30g protein, no sugar added">
+  </div>
 </section>
 
 <section id="why">
@@ -160,8 +182,8 @@
     <div class="cards">
       <div class="card">
         <span class="emoji">💪</span>
-        <h3>20g Protein</h3>
-        <p>High-quality protein in every bottle to build and repair muscle.</p>
+        <h3>30g Protein</h3>
+        <p>High-quality whey protein from the USA in every bottle to build and repair muscle.</p>
       </div>
       <div class="card">
         <span class="emoji">🥛</span>
@@ -170,7 +192,7 @@
       </div>
       <div class="card">
         <span class="emoji">🌱</span>
-        <h3>Low Sugar</h3>
+        <h3>No Sugar Added</h3>
         <p>All the taste without the sugar crash, so you stay sharp all day.</p>
       </div>
       <div class="card">
