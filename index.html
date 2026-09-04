@@ -368,6 +368,93 @@
     border-radius: 999px;
   }
 
+  /* ---------- events ---------- */
+  .events { background: var(--cream-deep); border-block: 1px solid rgba(25, 21, 18, 0.06); }
+  .event-list { border-top: 1px solid rgba(25, 21, 18, 0.12); }
+  .event-row {
+    display: grid;
+    grid-template-columns: 110px 1.4fr 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    padding: 2rem 1rem;
+    border-bottom: 1px solid rgba(25, 21, 18, 0.12);
+    text-decoration: none;
+    color: var(--ink);
+    transition: background 0.25s, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .event-row:hover { background: var(--white); transform: translateX(6px); }
+  @media (max-width: 820px) {
+    .event-row { grid-template-columns: 90px 1fr; row-gap: 0.5rem; }
+    .event-where { grid-column: 2; }
+    .event-go { display: none; }
+  }
+  .event-date {
+    font-family: var(--serif);
+    line-height: 1.05;
+    text-align: center;
+  }
+  .event-date .day {
+    display: block;
+    font-size: 2.3rem;
+    font-weight: 500;
+  }
+  .event-date .month {
+    display: block;
+    font-size: 0.72rem;
+    font-family: var(--sans);
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 0.35rem;
+  }
+  .event-info h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.45rem;
+    margin-bottom: 0.25rem;
+  }
+  .event-info p { color: var(--ink-soft); font-size: 0.93rem; }
+  .event-kind {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(193, 154, 63, 0.45);
+    padding: 0.28rem 0.65rem;
+    border-radius: 999px;
+    margin-bottom: 0.6rem;
+  }
+  .event-where {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .event-where span {
+    display: block;
+    font-weight: 400;
+    font-size: 0.82rem;
+  }
+  .event-go {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .event-go::after { content: " →"; color: var(--gold); }
+  .events-note {
+    margin-top: 2.2rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+  .events-note a { color: var(--gold); font-weight: 600; }
+
   /* ---------- quote ---------- */
   .quote { text-align: center; }
   .quote blockquote {
@@ -389,57 +476,132 @@
   }
 
   /* ---------- cta ---------- */
-  .cta { padding: 0 2rem 6.5rem; }
-  .cta-box {
-    max-width: 1140px;
-    margin: 0 auto;
-    background: linear-gradient(150deg, #241e19, var(--ink) 55%);
+  .cta {
+    background: linear-gradient(180deg, #241e19, var(--ink) 60%);
     color: var(--cream);
-    border-radius: 30px;
-    padding: 5rem 2.5rem;
     text-align: center;
+    padding: 7.5rem 2rem 6rem;
     position: relative;
     overflow: hidden;
   }
-  .cta-box::before {
+  .cta::before {
     content: "";
     position: absolute;
-    width: 560px;
-    height: 560px;
+    width: 760px;
+    height: 760px;
     left: 50%;
-    top: -320px;
+    top: -420px;
     transform: translateX(-50%);
-    background: radial-gradient(circle, rgba(227, 192, 106, 0.28), transparent 68%);
+    background: radial-gradient(circle, rgba(227, 192, 106, 0.3), transparent 65%);
+    pointer-events: none;
   }
-  .cta-box h2 { position: relative; }
-  .cta-box p {
-    position: relative;
+  .cta .container { position: relative; }
+  .cta h2 { font-size: clamp(2.5rem, 5.6vw, 4.1rem); margin-bottom: 1.2rem; }
+  .cta p {
     color: #b3a897;
-    max-width: 480px;
-    margin: 0 auto 2.4rem;
+    max-width: 520px;
+    margin: 0 auto 2.8rem;
+    font-size: 1.05rem;
+  }
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2.8rem;
   }
   .btn-gold {
-    position: relative;
     background: linear-gradient(135deg, var(--gold-bright), var(--gold));
     color: var(--ink);
-    box-shadow: 0 16px 38px rgba(227, 192, 106, 0.35);
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 1.15rem 3.1rem;
+    box-shadow: 0 18px 44px rgba(227, 192, 106, 0.4);
   }
-  .btn-gold:hover { transform: translateY(-2px); }
+  .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 24px 54px rgba(227, 192, 106, 0.5); }
+  .btn-ghost-light {
+    color: var(--cream);
+    border: 1px solid rgba(250, 247, 241, 0.35);
+    padding: 1.15rem 2.4rem;
+  }
+  .btn-ghost-light:hover { border-color: var(--gold-bright); color: var(--gold-bright); }
+  .cta-trust {
+    display: flex;
+    gap: 2.2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #8d8272;
+  }
+  .cta-trust span::before { content: "✦"; color: var(--gold-bright); margin-right: 0.5rem; }
 
+  /* ---------- footer ---------- */
   footer {
-    padding: 2.6rem 2rem;
-    border-top: 1px solid rgba(25, 21, 18, 0.08);
+    background: var(--ink);
+    color: var(--cream);
+    border-top: 1px solid rgba(250, 247, 241, 0.08);
+    padding: 4.5rem 2rem 0;
+    overflow: hidden;
   }
-  .foot {
+  .foot-grid {
+    max-width: 1140px;
+    margin: 0 auto 3.5rem;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 2.5rem;
+  }
+  @media (max-width: 720px) { .foot-grid { grid-template-columns: 1fr; } }
+  .foot-brand .logo { color: var(--cream); font-size: 1.5rem; }
+  .foot-brand p {
+    color: #b3a897;
+    font-size: 0.92rem;
+    max-width: 300px;
+    margin-top: 0.9rem;
+  }
+  .foot-col h4 {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-bright);
+    margin-bottom: 1.1rem;
+  }
+  .foot-col a {
+    display: block;
+    color: #b3a897;
+    text-decoration: none;
+    font-size: 0.95rem;
+    margin-bottom: 0.65rem;
+    transition: color 0.2s;
+  }
+  .foot-col a:hover { color: var(--cream); }
+  .foot-mark {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(4.5rem, 17vw, 13.5rem);
+    line-height: 0.8;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(227, 192, 106, 0.32), rgba(227, 192, 106, 0.02));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    user-select: none;
+    pointer-events: none;
+  }
+  .foot-base {
     max-width: 1140px;
     margin: 0 auto;
     display: flex;
-    align-items: center;
     justify-content: space-between;
     gap: 1rem;
     flex-wrap: wrap;
-    font-size: 0.82rem;
-    color: var(--ink-soft);
+    padding: 1.6rem 0 2rem;
+    border-top: 1px solid rgba(250, 247, 241, 0.08);
+    font-size: 0.78rem;
+    color: #8d8272;
   }
 </style>
 </head>
@@ -451,6 +613,7 @@
     <div class="nav-links">
       <a href="#craft">The Craft</a>
       <a href="#flavors">Flavors</a>
+      <a href="#events">Events</a>
       <a href="#contact" class="nav-cta">Get In Touch</a>
     </div>
   </nav>
@@ -561,6 +724,49 @@
         <p>Stone-ground green tea calm, layered over quiet protein power.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="events" id="events">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">On The Road</span>
+      <h2>Taste it <em>in person.</em></h2>
+      <p>Pop-ups, tastings, and race-day booths — come find us, try every flavor, and talk protein with the people who make it.</p>
+    </div>
+    <div class="event-list reveal">
+      <a class="event-row" href="mailto:knowhalimofficial@gmail.com?subject=RSVP%20—%20Sunrise%20Run%20Club%20Tasting">
+        <div class="event-date"><span class="day">19</span><span class="month">Sep 2026</span></div>
+        <div class="event-info">
+          <span class="event-kind">Tasting</span>
+          <h3>Sunrise Run Club Tasting</h3>
+          <p>Post-run recovery bar — all four flavors chilled and poured after the Saturday 5K.</p>
+        </div>
+        <div class="event-where">Marina Bay Promenade<span>Singapore · 8:00 AM</span></div>
+        <span class="event-go">RSVP</span>
+      </a>
+      <a class="event-row" href="mailto:knowhalimofficial@gmail.com?subject=RSVP%20—%20FitExpo%20Booth">
+        <div class="event-date"><span class="day">03</span><span class="month">Oct 2026</span></div>
+        <div class="event-info">
+          <span class="event-kind">Expo Booth</span>
+          <h3>FitExpo Asia — Booth 42</h3>
+          <p>Meet the team, sample the Signature Vanilla, and grab show-only bundle pricing.</p>
+        </div>
+        <div class="event-where">Expo &amp; Convention Centre<span>Hall B · 10 AM – 7 PM</span></div>
+        <span class="event-go">RSVP</span>
+      </a>
+      <a class="event-row" href="mailto:knowhalimofficial@gmail.com?subject=RSVP%20—%20Matcha%20Hour">
+        <div class="event-date"><span class="day">24</span><span class="month">Oct 2026</span></div>
+        <div class="event-info">
+          <span class="event-kind">Pop-Up</span>
+          <h3>Matcha Hour Pop-Up</h3>
+          <p>An afternoon devoted to our quietest flavor — stone-ground green tea, poured over ice.</p>
+        </div>
+        <div class="event-where">Tiong Bahru<span>Café takeover · 2 – 6 PM</span></div>
+        <span class="event-go">RSVP</span>
+      </a>
+    </div>
+    <p class="events-note reveal">Hosting a race, gym opening, or wellness day? <a href="mailto:knowhalimofficial@gmail.com?subject=Event%20Partnership">Invite us to pour</a>.</p>
   </div>
 </section>
 
